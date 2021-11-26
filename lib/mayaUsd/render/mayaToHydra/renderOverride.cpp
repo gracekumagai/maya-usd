@@ -808,6 +808,8 @@ void MtohRenderOverride::_InitHydraResources()
             { _rendererDesc.rendererName, filterRenderer, fallbackToUserDefaults });
         _globals.ApplySettings(renderDelegate, _rendererDesc.rendererName);
     }
+
+    _backupFrameBufferWorkaround = false;
     auto tasks = _taskController->GetRenderingTasks();
     for (auto task : tasks) {
         if (std::dynamic_pointer_cast<HdxColorizeSelectionTask>(task)) {
